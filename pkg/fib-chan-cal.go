@@ -1,15 +1,15 @@
 package pkg
 
 type Calc struct {
-	Pos    int64
-	First  int64
-	Second int64
+	Pos    uint64
+	First  uint64
+	Second uint64
 }
 
 type Input chan Calc
 type Output chan Calc
 
-func FibChan(pos int64) int64 {
+func FibChan(pos uint64) uint64 {
 	in := make(Input)
 	out := make(Output)
 	defer close(in)
