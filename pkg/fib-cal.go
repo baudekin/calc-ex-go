@@ -73,7 +73,6 @@ func FibBigMath(pos uint64) uint64 {
 
 func pow(base *big.Float, exp uint64) *big.Float {
 	result := new(big.Float)
-	result.SetPrec(256)
 	result.Set(base)
 	for i := uint64(0); i < exp-1; i++ {
 		result.Mul(result, base)
