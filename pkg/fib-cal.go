@@ -46,31 +46,6 @@ func FibMath(pos uint64) uint64 {
 	return uint64(math.Round(res))
 }
 
-func FibBigMath(pos uint64) uint64 {
-	// Note if you use math with uint64 this whoud fail over 75th position
-	bPos := big.NewFloat(float64(pos))
-	bPosF, _ := bPos.Float64()
-	fmt.Printf("bPos=%f\n", bPosF)
-	five := big.NewFloat(5.0)
-	fiveF, _ := five.Float64()
-	fmt.Printf("five=%f\n", fiveF)
-	sqrtFive := five.Sqrt(five)
-	sqrtFiveF, _ := sqrtFive.Float64()
-	fmt.Printf("sqrtFive=%f\n", sqrtFiveF)
-	sqrtFivePlusOne := sqrtFive.Add(sqrtFive, big.NewFloat(1.0))
-	sqrtFivePlusOneF, _ := sqrtFivePlusOne.Float64()
-	fmt.Printf("sqrtFivePlusOne=%f\n", sqrtFivePlusOneF)
-	x := pow(sqrtFivePlusOne, pos)
-	xF, _ := x.Float64()
-	fmt.Printf("xF=%f\n", xF)
-	z := pow(big.NewFloat(2.0), pos)
-	z.Mul(z, new(big.Float).Sqrt(big.NewFloat(5.0)))
-	zF, _ := z.Float64()
-	fmt.Printf("zF=%f\n", zF)
-
-	return 0
-}
-
 func pow(base *big.Float, exp uint64) *big.Float {
 	result := new(big.Float)
 	result.Set(base)
